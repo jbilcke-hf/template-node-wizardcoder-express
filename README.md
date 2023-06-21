@@ -1,8 +1,8 @@
 ---
 title: Template Node WizardCoder Express
 emoji: 🧙
-colorFrom: yellow
-colorTo: green
+colorFrom: blue
+colorTo: purple
 sdk: docker
 pinned: false
 app_port: 7860
@@ -69,4 +69,4 @@ You will see the following error message because Docker won't be able to use the
 
 However if you run your project on a Hugging Face space, you should be just fine :)
 
-See this demo: https://huggingface.co/spaces/jbilcke-hf/template-node-ctransformers-express
+See this demo: https://huggingface.co/spaces/jbilcke-hf/template-node-wizardcoder-express
