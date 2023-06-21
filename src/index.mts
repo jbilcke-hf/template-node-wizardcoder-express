@@ -2,7 +2,7 @@ import express from 'express'
 import { python } from 'pythonia'
 
 const { AutoModelForCausalLM } = await python('ctransformers')
-const llm = await AutoModelForCausalLM.from_pretrained$(
+const llm = AutoModelForCausalLM.from_pretrained$(
   'TheBloke/WizardCoder-15B-1.0-GGML', {
     model_file: 'WizardCoder-15B-1.0.ggmlv3.q4_0.bin',
     model_type: 'starcoder'
