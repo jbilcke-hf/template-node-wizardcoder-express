@@ -1,0 +1,1 @@
+URL used for tailwind: https://cdn.tailwindcss.com/3.3.2?plugins=forms@0.5.3,typography@0.5.9,aspect-ratio@0.4.2,line-clamp@0.4.4
