@@ -39,11 +39,9 @@ const maxParallelRequests = 1
 const pending: {
   total: number;
   queue: string[];
-  aborts: Record<string, any>,
 } = {
   total: 0,
   queue: [],
-  aborts: {},
 }
  
 const endRequest = (id: string, reason: string) => {
@@ -51,20 +49,7 @@ const endRequest = (id: string, reason: string) => {
     return
   }
   
-  // politely ask the LLM to stop
-  try {
-    pending.aborts[id].abort()
-  } catch (err) {
-    console.log(`could not abort request ${id} (${err})`)
-  }
-  // remove the request from everywhere
-  try {
-    pending.queue = pending.queue.filter(i => i !== id)
-    delete pending.aborts[id]
-    console.log(`cleaned up request ${id}`)
-  } catch (err) {
-    console.log(`failed to properly clean up request ${id}`)
-  }
+  pending.queue = pending.queue.filter(i => i !== id)
   console.log(`request ${id} ended (${reason})`)
 }
 
@@ -93,7 +78,6 @@ app.get("/", async (req, res) => {
   console.log(`new request ${id}`)
 
   pending.queue.push(id)
-  pending.aborts[id] = new AbortController() 
 
   const prefix = `<html><head>${css}${script}`
   res.write(prefix)
@@ -125,7 +109,11 @@ ${prefix}`
     const inputTokens = await llm.tokenize(finalPrompt)
     console.log("initializing the generator (may take 30s or more)")
     const generator = await llm.generate(inputTokens)
+
     for await (const token of generator) {
+      if (!pending.queue.includes(id)) {
+        break
+      }
       const tmp = await llm.detokenize(token)
       process.stdout.write(tmp)
       res.write(tmp)
