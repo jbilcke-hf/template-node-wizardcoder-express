@@ -12,9 +12,15 @@ const app = express()
 const port = 7860
 
 app.get('/', async (req, res) => {
-  const prompt = '<html><head><title>My Favorite Cookie Recipe</title></head><body><div><p>'
-  res.write(prompt)
+  const prefix = `<html><head>`
+  const prompt = `# Context
+A website about a delicious chocolate chip cookie recipe!
+# Output
+${prefix}`
+  res.write(prefix)
+  console.log('calling llm')
   const raw = await llm(prompt)
+  console.log('raw:', raw)
   const output = raw.split('</html>')
   res.write(output + '</html>')
   res.end()

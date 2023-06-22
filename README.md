@@ -69,4 +69,9 @@ You will see the following error message because Docker won't be able to use the
 
 However if you run your project on a Hugging Face space, you should be just fine :)
 
-See this demo: https://huggingface.co/spaces/jbilcke-hf/template-node-wizardcoder-express
+### Deployment to Hugging Face
+
+The standard free CPU instance (16 Gb) will not be enough for WizardCoder, you should use the upgraded CPU instance (32 Gb)
+
+I haven't upgraded mine yet, so it will probably crash when you try it:
+https://huggingface.co/spaces/jbilcke-hf/template-node-wizardcoder-express
