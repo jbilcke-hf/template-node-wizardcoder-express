@@ -11,6 +11,21 @@ app_port: 7860
 A minimalist Docker space to help people getting started with Node, WizardCoder (through CTransformers and Pythonia), Express and TypeScript.
 Ready to be used in a Hugging Face Space.
 
+
+# Examples
+
+## Live example
+
+Note: the space make take a few minutes to start.
+If it begins outputing bad HTML, release the page.
+
+https://huggingface.co/spaces/jbilcke-hf/template-node-wizardcoder-express?prompt=the%20landing%20page%20of%20a%20dog%20sitting%20company%20operating%20in%20NYC
+
+## Local prompt examples
+
+http://localhost:7860/?prompt=a%20landing%20page%20for%20a%20company%20called%20Hugging%20Face
+http://localhost:7860?prompt=the%20landing%20page%20of%20a%20dog%20sitting%20company%20operating%20in%20NYC
+
 ## Installation
 
 ### Prerequisites

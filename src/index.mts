@@ -65,7 +65,7 @@ app.get("/debug", (req, res) => {
 app.get("/", async (req, res) => {
   // naive implementation: we say we are out of capacity
   if (pending.queue.length >= maxParallelRequests) {
-    res.write("sorry, max nb of parallel request reached")
+    res.write("sorry, max nb of parallel requests reached")
     res.end()
     return
   }
