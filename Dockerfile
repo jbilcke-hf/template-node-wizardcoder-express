@@ -29,4 +29,8 @@ RUN pip install --upgrade pip && \
 
 COPY --chown=user . .
 
+# a limitation of Pythonia is that async calls can timeout
+# so we perform the slow operation of downloading the model to cache beforehand
+RUN python download-model.py
+
 CMD [ "npm", "run", "start" ]

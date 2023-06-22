@@ -8,7 +8,6 @@
     "docker": "npm run docker:build && npm run docker:run",
     "docker:build": "docker build -t template-node-wizardcoder-express .",
     "docker:run": "docker run -it -p 7860:7860 template-node-wizardcoder-express"
-
   },
   "author": "Julian Bilcke <julian.bilcke@huggingface.co>",
   "license": "Apache License",
