@@ -217,4 +217,4 @@ notify(message) {
 
 export const methodsPrompt = getPromptFromFeatures(methods)
 
-export const alpine = '' // "# Alpine.js docs\n"+ attributesPrompt + propertiesPrompt + methodsPrompt
+export const alpine = "# Alpine.js docs\n"+ attributesPrompt // + propertiesPrompt + methodsPrompt
